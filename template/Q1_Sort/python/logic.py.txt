@@ -1,0 +1,24 @@
+class Logic:
+    # このファイルのみ提出してください
+    # この中に解答を記述してください
+    
+def sort1(array):
+    n = len(array)   #nは配列の長さ
+    
+    # 配列の要素数が1の場合はソート不要
+    if n <= 1:
+        return array
+    
+    # ソートの実装
+    for i in range(n - 1):
+        for j in range(n - 1 - i):
+            # 後ろから要素を比較して順序を入れ替える
+            if array[n - j - 1] < array[n - j - 2]:
+                array[n - j - 1], array[n - j - 2] = array[n - j - 1], array[n - j - 2]
+    
+    return array
+
+a = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]   #テスト用配列入力
+print("ソート前:", a)
+outout1 = sort1(a)
+print("ソート後:", outout1)
