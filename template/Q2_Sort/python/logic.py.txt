@@ -1,0 +1,34 @@
+class Logic:
+    # このファイルのみ提出してください
+    # この中に解答を記述してください
+
+def sort2(array):
+    n = len(array)   # nは配列の長さ
+
+    # 配列の要素数が1の場合はソート不要
+    if n <= 1:
+        return array
+
+    # ソートの実装
+    for i in range(1, n):
+        x = array[i]   #一時変数
+       
+        for j in range(0, i):
+            # 一時変数の方が大きければ、比較対象の後ろに挿入して終了
+            if x > array[i - j - 1]:
+              array[i - j] = x
+              break
+            
+            #一時変数の方が小さければ、比較対象を後ろに移動してループ継続
+            if x < array[i - j - 1]:
+                array[i - j] = array[i - j - 1]
+                # 最後
+                if j == i-1:
+                  array[i - j - 1] = x
+
+    return array
+
+b = [5, 2, 8, 12, 3]   # テスト用の配列入力
+print("ソート前:", b)
+output2 = sort2(b)
+print("ソート後:", output2)
